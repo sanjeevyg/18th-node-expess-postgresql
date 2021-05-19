@@ -1,9 +1,26 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const connection = require('./knexfile').development
+const database = require('knex')(connection)
+
+const cors = require('cors')
+
+app.use(cors())
+app.use(express.json())
 
 app.get('/students', (request, response) => {
-    response.send({name: 'Yogi'})
+    database('students')
+        .then(students => response.send(students))
+})
+
+app.post('/students', (request, response) => {
+    const student = request.body
+
+    database('students')
+        .insert(student)
+        .returning('*')
+        .then(student => response.send(student))
 })
 
 
