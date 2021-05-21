@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 const connection = require('./knexfile').development
 const database = require('knex')(connection)
+// console.log(require('knex'))
 
 const cors = require('cors')
 
@@ -21,6 +22,24 @@ app.post('/students', (request, response) => {
         .insert(student)
         .returning('*')
         .then(student => response.send(student))
+})
+
+app.patch('/students/:id', (request, response) => {
+    const { student } = request.body
+    // console.log(request.params)
+    database('students')
+        .where({id: request.params.id})
+        .update(student)
+        .returning('*')
+        .then(student => response.send(student))
+})
+
+app.delete('/students/:id', (request, response) => {
+    const id = request.params.id 
+    database('students')
+        .where({id: request.params.id})
+        .delete()
+        .then(() => response.send({message: `Student Deleted ${id}`}))
 })
 
 

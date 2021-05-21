@@ -4,3 +4,47 @@
 2021-05-18 20:26:46.979 CDT [989] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
 2021-05-18 20:26:46.983 CDT [990] LOG:  database system was shut down at 2021-05-18 20:25:22 CDT
 2021-05-18 20:26:46.987 CDT [989] LOG:  database system is ready to accept connections
+2021-05-19 20:06:14.802 CDT [9900] FATAL:  database "test" does not exist
+2021-05-19 20:07:59.992 CDT [9941] FATAL:  database "test" does not exist
+2021-05-19 20:09:30.206 CDT [10018] FATAL:  database "test" does not exist
+2021-05-19 20:32:54.807 CDT [10754] FATAL:  database "test" does not exist
+2021-05-19 20:36:47.540 CDT [10937] FATAL:  database "demoapp" does not exist
+2021-05-19 20:38:19.760 CDT [10998] ERROR:  syntax error at or near "select" at character 20
+2021-05-19 20:38:19.760 CDT [10998] STATEMENT:  select * from dogs
+	select * from dogs;
+2021-05-19 21:34:55.738 CDT [12751] ERROR:  relation "1" does not exist at character 15
+2021-05-19 21:34:55.738 CDT [12751] STATEMENT:  select * from "1" as "id" limit $1
+2021-05-19 21:34:59.674 CDT [12751] ERROR:  relation "1" does not exist at character 15
+2021-05-19 21:34:59.674 CDT [12751] STATEMENT:  select * from "1" as "id" limit $1
+2021-05-19 21:44:32.714 CDT [13073] ERROR:  duplicate key value violates unique constraint "dogs_pkey"
+2021-05-19 21:44:32.714 CDT [13073] DETAIL:  Key (id)=(1) already exists.
+2021-05-19 21:44:32.714 CDT [13073] STATEMENT:  insert into "dogs" ("age", "breed", "name") values ($1, $2, $3) returning *
+2021-05-19 21:45:09.156 CDT [13100] ERROR:  duplicate key value violates unique constraint "dogs_pkey"
+2021-05-19 21:45:09.156 CDT [13100] DETAIL:  Key (id)=(2) already exists.
+2021-05-19 21:45:09.156 CDT [13100] STATEMENT:  insert into "dogs" ("age", "breed", "name") values ($1, $2, $3) returning *
+2021-05-19 21:46:21.078 CDT [13100] ERROR:  duplicate key value violates unique constraint "dogs_pkey"
+2021-05-19 21:46:21.078 CDT [13100] DETAIL:  Key (id)=(3) already exists.
+2021-05-19 21:46:21.078 CDT [13100] STATEMENT:  insert into "dogs" ("age", "breed", "name") values ($1, $2, $3) returning *
+2021-05-20 17:21:13.651 CDT [16672] ERROR:  relation "table_name" does not exist at character 13
+2021-05-20 17:21:13.651 CDT [16672] STATEMENT:  delete from "table_name"
+2021-05-20 18:53:51.006 CDT [18398] ERROR:  relation "table_name" does not exist at character 13
+2021-05-20 18:53:51.006 CDT [18398] STATEMENT:  delete from "table_name"
+2021-05-20 19:05:15.697 CDT [19250] ERROR:  duplicate key value violates unique constraint "dogs_pkey"
+2021-05-20 19:05:15.697 CDT [19250] DETAIL:  Key (id)=(1) already exists.
+2021-05-20 19:05:15.697 CDT [19250] STATEMENT:  insert into "dogs" ("age", "breed", "name") values ($1, $2, $3) returning *
+2021-05-20 19:06:35.838 CDT [19286] ERROR:  duplicate key value violates unique constraint "dogs_pkey"
+2021-05-20 19:06:35.838 CDT [19286] DETAIL:  Key (id)=(2) already exists.
+2021-05-20 19:06:35.838 CDT [19286] STATEMENT:  insert into "dogs" ("age", "breed", "name") values ($1, $2, $3) returning *
+2021-05-20 19:09:12.496 CDT [19362] ERROR:  duplicate key value violates unique constraint "dogs_pkey"
+2021-05-20 19:09:12.496 CDT [19362] DETAIL:  Key (id)=(3) already exists.
+2021-05-20 19:09:12.496 CDT [19362] STATEMENT:  insert into "dogs" ("age", "breed", "name") values ($1, $2, $3) returning *
+2021-05-20 19:14:22.910 CDT [19585] FATAL:  database "dog-table" does not exist
+2021-05-20 19:14:37.903 CDT [19610] FATAL:  database "dogs-table" does not exist
+2021-05-20 19:14:56.621 CDT [19640] FATAL:  database "dogs-database" does not exist
+2021-05-20 19:22:18.597 CDT [20026] FATAL:  database "dogs-database" does not exist
+2021-05-20 19:23:09.206 CDT [20047] ERROR:  syntax error at or near "Select" at character 27
+2021-05-20 19:23:09.206 CDT [20047] STATEMENT:  Select * from dogs
+	jdfldj
+	Select * from dogs;
+2021-05-20 23:05:15.841 CDT [25465] ERROR:  invalid input syntax for type integer: "Jackcheee"
+2021-05-20 23:05:15.841 CDT [25465] STATEMENT:  insert into "students" ("name", "phase") values ($1, $2) returning *
