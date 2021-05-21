@@ -25,13 +25,15 @@ app.post('/students', (request, response) => {
 })
 
 app.patch('/students/:id', (request, response) => {
-    const { student } = request.body
+    const student = request.body
     // console.log(request.params)
     database('students')
         .where({id: request.params.id})
         .update(student)
         .returning('*')
-        .then(student => response.send(student))
+        .then(student => {
+            response.json({student})
+        })
 })
 
 app.delete('/students/:id', (request, response) => {
