@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 3009
 const connection = require('./knexfile').development
 const database = require('knex')(connection)
 // console.log(require('knex'))
